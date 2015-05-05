@@ -5,7 +5,6 @@ class CreateRoadtrips < ActiveRecord::Migration
       t.string :origin
       t.string :destination
       t.belongs_to :user
- 
       t.timestamps null: false
     end
   end
