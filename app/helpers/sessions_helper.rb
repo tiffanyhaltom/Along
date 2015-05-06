@@ -16,11 +16,11 @@ module SessionsHelper
    !current_user.nil?
  end
 
- def login_logout_links
-   if logged_in?
-     link_to 'Logout', logout_path
-   else
-     link_to 'Log in with Facebook!', login_path
-   end
- end
+ # def login_logout_links
+ #   if logged_in?
+ #     link_to 'Logout', logout_path
+ #   else
+ #     link_to 'Log in with Facebook!', login_path
+ #   end
+ # end
 end

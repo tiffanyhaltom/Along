@@ -1,4 +1,3 @@
-<h1>Welcome to our app</h1>
 
   <style type="text/css">
     #map-canvas { height: 500px; width: 500px; margin: 0; padding: 0;}
@@ -22,8 +21,8 @@
 		  directionsDisplay.setMap(map);
 		}
     function calcRoute() {
-		  var start = document.getElementById('start').value;
-		  var end = document.getElementById('end').value;
+		  var start = document.getElementById('roadtrip_origin').value;
+		  var end = document.getElementById('roadtrip_destination').value;
 		  var request = {
 					origin:start,
 		      destination:end,
