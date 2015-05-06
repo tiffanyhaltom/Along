@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :check_ins
   root to: "welcome#index"
-
-  get '/welcome/test' => 'welcome#test'
-
+  
   resources :sessions, only: [:new, :create, :destroy]
   
   get '/login', to: 'sessions#new'

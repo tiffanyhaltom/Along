@@ -1,30 +1,30 @@
-<%= form_for(@roadtrip) do |f| %>
- <% if @roadtrip.errors.any? %>
-   <div id="error_explanation">
-     <h2><%= pluralize(@roadtrip.errors.count, "error") %> prohibited this roadtrip from being saved:</h2>
+  <% if @roadtrip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@roadtrip.errors.count, "error") %> prohibited this roadtrip from being saved:</h2>
 
-     <ul>
-     <% @roadtrip.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-     <% end %>
-     </ul>
-   </div>
- <% end %>
+      <ul>
+      <% @roadtrip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
- <div class="field">
-   <%= f.label :name %><br>
-   <%= f.text_field :name %>
- </div>
- <div class="field">
-   <%= f.label :origin %><br>
-   <%= f.text_field :origin %>
- </div>
- <div class="field">
-   <%= f.label :destination %><br>
-   <%= f.text_field :destination %>
- </div>
- <%= f.hidden_field :user_id, :value => current_user.id %>
- <div class="actions">
-   <%= f.submit %>
- </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :origin %><br>
+    <%= f.text_field :origin %>
+  </div>
+  <div class="field">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </div>
+  <%= f.hidden_field :user_id, :value => current_user.try(:id) %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+>>>>>>> th
 <% end %>

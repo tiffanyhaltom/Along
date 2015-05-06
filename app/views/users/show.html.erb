@@ -1,0 +1,14 @@
+<div class="row">
+
+<div class="col-md-4">
+ <h1 class="page-header"><%= @user.name %></h1>
+ <%= image_tag @user.image_url, class: "img-circle", style: "width:100px" %>
+ <br>
+ <dl class="dl-horizontal">
+   <dt>Email:</dt>
+   <dd><%= @user.email %></p><br></dd>
+ </dl>
+ <% if current_user == @user %>
+   <%= link_to 'Edit Profile', edit_user_path(@user.id), class: "btn btn-primary" %>
+ <% end %>
+</div>
