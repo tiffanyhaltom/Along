@@ -4,5 +4,7 @@ class WelcomeController < ApplicationController
 		@roadtrip = Roadtrip.new
 	end
 
+	def test
+	end
 
 end

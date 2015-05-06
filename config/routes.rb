@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   resources :check_ins
   root to: "welcome#index"
 
+  get '/welcome/test' => 'welcome#test'
+
   resources :sessions, only: [:new, :create, :destroy]
   
   get '/login', to: 'sessions#new'
 
- 	get '/logout', to: 'sessions#destroy'
- 
- 	get '/my_itineraries', to: 'wishlists#my_itineraries'
+ 	get 'signout', to: 'sessions#destroy', as: "signout"
 
- 	get '/auth/facebook/callback', to: 'sessions#create'
+ 	get "/auth/:provider/callback", to: "sessions#create", as: "signin"
 end

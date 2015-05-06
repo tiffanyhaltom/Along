@@ -1,21 +1,24 @@
 class SessionsController < ApplicationController
-
- def new
-   redirect_to '/auth/facebook'
- end
-
  def create
-   user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-   log_in(user)
-   redirect_to root_path
- end
+  user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
+	  if user
+	    session[:user_id] = user.id
+	    flash[:success] = "Welcome back, #{user.name}!"
+	    redirect_to root_url
+	  else
+	    @user = User.create_with_omniauth(auth)
+	    render '/users/new'
+	  end
+	end
 
- def auth
-   request.env['omniauth.auth']
- end
+	def destroy
+	  session.destroy
+	  flash[:danger] = "Signed Out!"
+	  redirect_to root_url
+	end
 
- def destroy
-   log_out
-   redirect_to root_path
- end
+	private
+	def auth
+	  request.env["omniauth.auth"]
+	end
 end
