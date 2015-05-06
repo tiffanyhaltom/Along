@@ -39,5 +39,8 @@
     google.maps.event.addDomListener(window, 'load', initialize);
   </script>
 <div id="map-canvas"></div>
-
+<% if logged_in? %>
 <%= render 'form' %>
+<% else %>
+<h3>please log in to continue</h3>
+<% end %>
